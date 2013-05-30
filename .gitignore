@@ -1,0 +1,7 @@
+*.py[co]
+.DS_Store
+build/*
+django_localflavor_th.egg-info/*
+MANIFEST
+dist/
+docs/_build/
