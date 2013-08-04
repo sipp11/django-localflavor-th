@@ -8,13 +8,13 @@ class ZipCodeField(CharField):
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 5
-        super(THZipCodeField, self).__init__(*args, **kwargs)
+        super(ZipCodeField, self).__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         from django_localflavor_th.forms import THZipCodeField
         defaults = {'form_class': THZipCodeField}
         defaults.update(kwargs)
-        return super(THZipCodeField, self).formfield(**defaults)
+        return super(ZipCodeField, self).formfield(**defaults)
 
 
 class PhoneNumberField(CharField):
