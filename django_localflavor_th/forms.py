@@ -31,11 +31,17 @@ class THPhoneNumberField(CharField):
         if value in EMPTY_VALUES:
             return ''
         value = re.sub('(\(|\)|\s+)', '', smart_text(value))
-        if mobile_digits_re.search(value):
-            return '0%s-%s-%s' % (m.group(1), m.group(2), m.group(3))
+        # strip dash
+        value = value.replace('-', '')
+
+        if len(value) in (10, 13) and mobile_digits_re.search(value):
+            m = mobile_digits_re.search(value)
+            return '0%s-%s-%s' % (m.group(2), m.group(3), m.group(4))
         elif metro_phone_digits_re.search(value):
-            return '02-%s-%s' % (m.group(1), m.group(2))
+            m = metro_phone_digits_re.search(value)
+            return '02-%s-%s' % (m.group(2), m.group(3))
         elif non_metro_phone_digits_re.search(value):
+            m = non_metro_phone_digits_re.search(value)
             return '0%s-%s-%s' % (m.group(1), m.group(2), m.group(3))
         raise ValidationError(self.default_error_messages['invalid'])
 

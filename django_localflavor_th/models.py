@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.fields import CharField
 
 
-class THZipCodeField(CharField):
+class ZipCodeField(CharField):
 
     description = _("Thai postal code")
 
@@ -30,6 +30,5 @@ class PhoneNumberField(CharField):
         defaults = {'form_class': THPhoneNumberField}
         defaults.update(kwargs)
         return super(PhoneNumberField, self).formfield(**defaults)
-
 
 # TODO:  models.THZipCodeField: needed to be implemented.

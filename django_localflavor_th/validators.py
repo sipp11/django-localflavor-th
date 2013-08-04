@@ -24,6 +24,7 @@ class THNationalIdValidator(object):
         # check if it is only number
 
         if not re.search(r'^\d+$', value):
+            # TODO: we have to implement exceptions for ones whom they don't have valid ID
             raise ValidationError(_('Enter only numbers.'), self.code)
 
         # number has to have exact 13 digit
