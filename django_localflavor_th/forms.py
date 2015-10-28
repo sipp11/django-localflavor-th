@@ -14,7 +14,7 @@ from django.utils.translation import ugettext_lazy as _
 
 phone_digits_re = re.compile(r'^(?:1-?)?(\d{3})[-\.]?(\d{3})[-\.]?(\d{4})$')
 
-mobile_digits_re = re.compile(r'^(0)?(\d{2})[-\.]?(\d{3})[-\.]?(\d{4})$')
+mobile_digits_re = re.compile(r'^(0)?([1-9]{2})[-\.]?(\d{3})[-\.]?(\d{4})$')
 metro_phone_digits_re = re.compile(r'^(?:0-?)?(2)[-\.]?(\d{3})[-\.]?(\d{4})$')
 non_metro_phone_digits_re = re.compile(r'^0?(\d{2})[-\.]?(\d{3})[-\.]?(\d{3})$')
 
